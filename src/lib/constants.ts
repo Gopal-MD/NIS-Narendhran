@@ -3,7 +3,7 @@ export const COMPANY = {
   shortName: "NIS",
   tagline: "Complete IT Sales and Service Solutions",
   website: "https://www.nisuae.com",
-  email: "info@nisuae.com",
+  email: "sales@nisuae.com",
   phone: "+971-6-XXX-XXXX",
   whatsapp: "+971XXXXXXXXX",
   address: "26th Floor, Amber Gem Tower, Ajman, UAE",

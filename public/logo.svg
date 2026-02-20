@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
+  <defs>
+    <linearGradient id="shield-left" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a1e3d"/>
+      <stop offset="100%" stop-color="#0f2847"/>
+    </linearGradient>
+    <linearGradient id="shield-right" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a4480"/>
+      <stop offset="100%" stop-color="#1a4480"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer shield -->
+  <path d="M100 8 L188 50 C188 50 192 160 100 232 C8 160 12 50 12 50 Z" fill="#0a1e3d"/>
+  <!-- White border -->
+  <path d="M100 22 L176 58 C176 58 180 152 100 218 C20 152 24 58 24 58 Z" fill="white"/>
+  <!-- Inner shield left half -->
+  <clipPath id="left-clip">
+    <rect x="0" y="0" width="100" height="240"/>
+  </clipPath>
+  <clipPath id="right-clip">
+    <rect x="100" y="0" width="100" height="240"/>
+  </clipPath>
+  <!-- Inner shield shape -->
+  <path d="M100 34 L168 66 C168 66 172 148 100 208 C28 148 32 66 32 66 Z" fill="url(#shield-left)" clip-path="url(#left-clip)"/>
+  <path d="M100 34 L168 66 C168 66 172 148 100 208 C28 148 32 66 32 66 Z" fill="url(#shield-right)" clip-path="url(#right-clip)"/>
+  <!-- NIS Text -->
+  <text x="100" y="138" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="58" fill="white" letter-spacing="2">NIS</text>
+</svg>

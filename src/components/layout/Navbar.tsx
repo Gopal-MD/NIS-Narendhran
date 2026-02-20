@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -37,9 +38,14 @@ export function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center font-bold text-white text-lg shadow-md">
-              N
-            </div>
+            <Image
+              src="/logo.svg"
+              alt="NIS Logo"
+              width={44}
+              height={52}
+              className="drop-shadow-md"
+              priority
+            />
             <div className="flex flex-col">
               <span
                 className={cn(

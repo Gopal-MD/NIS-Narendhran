@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Mail,
   Phone,
@@ -19,9 +20,12 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center font-bold text-white text-lg">
-                N
-              </div>
+              <Image
+                src="/logo.svg"
+                alt="NIS Logo"
+                width={44}
+                height={52}
+              />
               <div>
                 <h3 className="font-bold text-lg">{COMPANY.shortName}</h3>
                 <p className="text-xs text-white/60">IT Solutions</p>
