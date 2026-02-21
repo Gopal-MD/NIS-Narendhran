@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- Background circles -->
+  <circle cx="200" cy="150" r="130" fill="#EBF5FF" opacity="0.5"/>
+  <circle cx="200" cy="150" r="90" fill="#D6EBFF" opacity="0.4"/>
+
+  <!-- Headset -->
+  <path d="M140 140 C140 95 170 60 200 60 C230 60 260 95 260 140" stroke="#0A2463" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+  <!-- Left earpiece -->
+  <rect x="118" y="125" width="30" height="45" rx="10" fill="#0A2463"/>
+  <rect x="122" y="130" width="22" height="35" rx="8" fill="#1E40AF"/>
+
+  <!-- Right earpiece -->
+  <rect x="252" y="125" width="30" height="45" rx="10" fill="#0A2463"/>
+  <rect x="256" y="130" width="22" height="35" rx="8" fill="#1E40AF"/>
+
+  <!-- Microphone arm -->
+  <path d="M148 155 C148 155 145 190 165 200 L180 208" stroke="#0A2463" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="184" cy="210" r="8" fill="#0A2463"/>
+  <circle cx="184" cy="210" r="5" fill="#1E40AF"/>
+
+  <!-- Support person outline (simplified) -->
+  <circle cx="200" cy="180" r="30" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.3"/>
+
+  <!-- Chat bubbles -->
+  <g transform="translate(280, 60)">
+    <rect x="0" y="0" width="80" height="40" rx="8" fill="#2563EB"/>
+    <polygon points="10,40 20,52 30,40" fill="#2563EB"/>
+    <rect x="12" y="12" width="50" height="5" rx="2" fill="white" opacity="0.5"/>
+    <rect x="12" y="22" width="35" height="5" rx="2" fill="white" opacity="0.3"/>
+  </g>
+
+  <g transform="translate(30, 90)">
+    <rect x="0" y="0" width="70" height="35" rx="8" fill="#22C55E"/>
+    <polygon points="60,35 50,45 40,35" fill="#22C55E"/>
+    <rect x="10" y="10" width="45" height="5" rx="2" fill="white" opacity="0.5"/>
+    <rect x="10" y="20" width="30" height="5" rx="2" fill="white" opacity="0.3"/>
+  </g>
+
+  <!-- Clock / 24-7 -->
+  <g transform="translate(305, 175)">
+    <circle cx="30" cy="30" r="28" fill="white" stroke="#0A2463" stroke-width="3"/>
+    <line x1="30" y1="30" x2="30" y2="14" stroke="#0A2463" stroke-width="3" stroke-linecap="round"/>
+    <line x1="30" y1="30" x2="42" y2="34" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="30" cy="30" r="3" fill="#0A2463"/>
+  </g>
+
+  <!-- Wrench + gear -->
+  <g transform="translate(30, 195)">
+    <circle cx="25" cy="25" r="20" fill="none" stroke="#F59E0B" stroke-width="3"/>
+    <!-- Gear teeth (simplified) -->
+    <rect x="21" y="0" width="8" height="8" rx="1" fill="#F59E0B"/>
+    <rect x="21" y="42" width="8" height="8" rx="1" fill="#F59E0B"/>
+    <rect x="0" y="21" width="8" height="8" rx="1" fill="#F59E0B"/>
+    <rect x="42" y="21" width="8" height="8" rx="1" fill="#F59E0B"/>
+    <circle cx="25" cy="25" r="8" fill="#F59E0B"/>
+    <circle cx="25" cy="25" r="4" fill="white"/>
+  </g>
+
+  <!-- Decorative dots -->
+  <circle cx="160" cy="250" r="3" fill="#2563EB" opacity="0.2"/>
+  <circle cx="250" cy="250" r="4" fill="#2563EB" opacity="0.25"/>
+</svg>

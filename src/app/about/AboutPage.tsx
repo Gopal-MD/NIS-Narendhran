@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { AnimatedCounter } from "@/components/shared/AnimatedCounter";
 import { STATS, COMPANY } from "@/lib/constants";
@@ -73,6 +74,7 @@ export function AboutPage() {
       {/* Page Header */}
       <section className="gradient-hero pt-32 pb-20">
         <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,11 +88,27 @@ export function AboutPage() {
               Powering Businesses with Reliable IT Solutions
             </h1>
             <p className="text-white/70 text-lg leading-relaxed">
-              Since our inception, NATHI INTEGRATED IT SOLUTIONS FZE LLC has
-              been at the forefront of delivering innovative and reliable IT
-              solutions to businesses across the United Arab Emirates.
+              NATHI INTEGRATED IT SOLUTIONS FZE LLC is a dynamic IT solutions
+              company at the forefront of delivering innovative and reliable
+              technology services to businesses across the United Arab Emirates.
             </p>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="hidden lg:flex items-center justify-center"
+          >
+            <Image
+              src="/images/about-illustration.svg"
+              alt="About NIS"
+              width={500}
+              height={400}
+              className="w-full max-w-md"
+            />
+          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -104,11 +122,12 @@ export function AboutPage() {
                   Company Overview
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  {COMPANY.name} is a leading IT solutions company headquartered
-                  at the prestigious Amber Gem Tower in Ajman, UAE. Established
-                  with a vision to bridge the gap between world-class technology
-                  and regional business needs, we have grown into a trusted name
-                  in the UAE&apos;s IT sector.
+                  {COMPANY.name} is a forward-thinking IT solutions company
+                  headquartered at the prestigious Amber Gem Tower in Ajman,
+                  UAE. Founded with a vision to bridge the gap between
+                  world-class technology and regional business needs, we are
+                  rapidly establishing ourselves as a trusted name in the
+                  UAE&apos;s IT sector.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Our portfolio spans the entire IT ecosystem — from enterprise

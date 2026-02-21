@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" fill="none">
+  <!-- Signal bars -->
+  <rect x="50" y="12" width="3" height="16" rx="1.5" fill="#049FD9"/>
+  <rect x="58" y="8" width="3" height="24" rx="1.5" fill="#049FD9"/>
+  <rect x="66" y="4" width="3" height="32" rx="1.5" fill="#049FD9"/>
+  <rect x="78" y="2" width="3" height="36" rx="1.5" fill="#049FD9"/>
+  <rect x="90" y="4" width="3" height="32" rx="1.5" fill="#049FD9"/>
+  <rect x="98" y="8" width="3" height="24" rx="1.5" fill="#049FD9"/>
+  <rect x="106" y="12" width="3" height="16" rx="1.5" fill="#049FD9"/>
+  <text x="80" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#049FD9">cisco</text>
+</svg>

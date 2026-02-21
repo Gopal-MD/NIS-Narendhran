@@ -26,36 +26,42 @@ export const SERVICES = [
     description:
       "We supply a comprehensive range of IT hardware including laptops, desktops, servers, networking equipment, and peripherals from leading global brands to businesses across the UAE.",
     icon: "Monitor",
+    image: "/services/it-hardware.svg",
   },
   {
     title: "Printer Installation & Repair",
     description:
       "Expert installation, configuration, and repair services for all major printer brands. Our certified technicians ensure minimal downtime and maximum productivity.",
     icon: "Printer",
+    image: "/services/printer.svg",
   },
   {
     title: "Printer AMC Contracts",
     description:
       "Annual Maintenance Contracts that provide regular servicing, preventive maintenance, and priority repair services for your entire printer fleet at predictable costs.",
     icon: "FileText",
+    image: "/services/amc.svg",
   },
   {
     title: "Network Setup & Configuration",
     description:
       "End-to-end network infrastructure design, installation, and configuration including LAN, WAN, Wi-Fi, and structured cabling solutions for offices of all sizes.",
     icon: "Network",
+    image: "/services/network.svg",
   },
   {
     title: "CCTV Installation",
     description:
       "Professional CCTV and surveillance system design, installation, and maintenance. We provide HD and IP camera solutions with remote monitoring capabilities.",
     icon: "Camera",
+    image: "/services/cctv.svg",
   },
   {
     title: "On-Site & Remote Technical Support",
     description:
       "Dedicated technical support team available for on-site visits and remote troubleshooting. We ensure your IT infrastructure runs smoothly around the clock.",
     icon: "Headphones",
+    image: "/services/support.svg",
   },
 ] as const;
 
@@ -123,18 +129,18 @@ export const PRODUCT_CATEGORIES = [
 ] as const;
 
 export const PARTNER_BRANDS = [
-  "HP",
-  "Dell",
-  "Lenovo",
-  "Canon",
-  "Epson",
-  "Brother",
-  "Cisco",
-  "Hikvision",
-  "Dahua",
-  "Acer",
-  "Microsoft",
-  "APC",
+  { name: "HP", logo: "/brands/hp.svg" },
+  { name: "Dell", logo: "/brands/dell.svg" },
+  { name: "Lenovo", logo: "/brands/lenovo.svg" },
+  { name: "Canon", logo: "/brands/canon.svg" },
+  { name: "Epson", logo: "/brands/epson.svg" },
+  { name: "Brother", logo: "/brands/brother.svg" },
+  { name: "Cisco", logo: "/brands/cisco.svg" },
+  { name: "Hikvision", logo: "/brands/hikvision.svg" },
+  { name: "Dahua", logo: "/brands/dahua.svg" },
+  { name: "Acer", logo: "/brands/acer.svg" },
+  { name: "Microsoft", logo: "/brands/microsoft.svg" },
+  { name: "APC", logo: "/brands/apc.svg" },
 ] as const;
 
 export const STATS = [
@@ -173,7 +179,7 @@ export const WHY_CHOOSE_US = [
   {
     title: "Proven Track Record",
     description:
-      "Over 15 years of trusted service delivery to government entities, corporate offices, and SMEs across the UAE.",
+      "Built on deep industry expertise and trusted partnerships, delivering excellent service to government entities, corporate offices, and SMEs across the UAE.",
   },
 ] as const;
 

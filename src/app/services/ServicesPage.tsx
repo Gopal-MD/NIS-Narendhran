@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { SERVICES } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
@@ -169,9 +170,19 @@ export function ServicesPage() {
                       }`}
                     >
                       <div className="text-center">
-                        <div className="w-24 h-24 mx-auto rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4">
-                          <Icon className="h-12 w-12 text-white" />
-                        </div>
+                        {service.image ? (
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            width={320}
+                            height={240}
+                            className="mx-auto mb-4 drop-shadow-lg"
+                          />
+                        ) : (
+                          <div className="w-24 h-24 mx-auto rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4">
+                            <Icon className="h-12 w-12 text-white" />
+                          </div>
+                        )}
                         <p className="text-white/80 font-medium">
                           {service.title}
                         </p>

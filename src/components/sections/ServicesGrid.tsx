@@ -32,6 +32,7 @@ export function ServicesGrid() {
               title={service.title}
               description={service.description}
               icon={service.icon}
+              image={service.image}
               index={index}
             />
           ))}

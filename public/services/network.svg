@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- Background circles -->
+  <circle cx="200" cy="150" r="130" fill="#EBF5FF" opacity="0.5"/>
+  <circle cx="200" cy="150" r="90" fill="#D6EBFF" opacity="0.4"/>
+
+  <!-- Central hub / router -->
+  <rect x="155" y="110" width="90" height="60" rx="10" fill="#0A2463"/>
+  <rect x="163" y="118" width="74" height="44" rx="6" fill="#1E40AF"/>
+  <!-- Router LEDs -->
+  <circle cx="178" cy="133" r="3" fill="#22C55E"/>
+  <circle cx="192" cy="133" r="3" fill="#22C55E"/>
+  <circle cx="206" cy="133" r="3" fill="#F59E0B"/>
+  <circle cx="220" cy="133" r="3" fill="#22C55E"/>
+  <!-- Router antenna -->
+  <rect x="175" y="90" width="4" height="24" rx="2" fill="#0A2463"/>
+  <circle cx="177" cy="87" r="5" fill="#3B82F6"/>
+  <rect x="215" y="90" width="4" height="24" rx="2" fill="#0A2463"/>
+  <circle cx="217" cy="87" r="5" fill="#3B82F6"/>
+
+  <!-- Network connections - lines to devices -->
+  <!-- Top left - laptop -->
+  <line x1="170" y1="110" x2="80" y2="60" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="50" y="40" width="60" height="40" rx="4" fill="#0A2463"/>
+  <rect x="55" y="45" width="50" height="25" rx="2" fill="#3B82F6"/>
+  <rect x="45" y="80" width="70" height="5" rx="2" fill="#1A3A7A"/>
+
+  <!-- Top right - server rack -->
+  <line x1="230" y1="110" x2="320" y2="60" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="296" y="30" width="50" height="65" rx="4" fill="#0A2463"/>
+  <rect x="302" y="38" width="38" height="8" rx="2" fill="#1E40AF"/>
+  <circle cx="334" cy="42" r="2" fill="#22C55E"/>
+  <rect x="302" y="52" width="38" height="8" rx="2" fill="#1E40AF"/>
+  <circle cx="334" cy="56" r="2" fill="#22C55E"/>
+  <rect x="302" y="66" width="38" height="8" rx="2" fill="#1E40AF"/>
+  <circle cx="334" cy="70" r="2" fill="#F59E0B"/>
+
+  <!-- Bottom left - phone -->
+  <line x1="175" y1="170" x2="90" y2="230" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="65" y="210" width="50" height="45" rx="6" fill="#0A2463"/>
+  <rect x="70" y="215" width="40" height="30" rx="2" fill="#3B82F6"/>
+
+  <!-- Bottom right - desktop -->
+  <line x1="225" y1="170" x2="310" y2="220" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="280" y="200" width="60" height="45" rx="4" fill="#0A2463"/>
+  <rect x="285" y="205" width="50" height="30" rx="2" fill="#3B82F6"/>
+  <rect x="300" y="245" width="20" height="8" rx="2" fill="#1A3A7A"/>
+
+  <!-- WiFi signals -->
+  <path d="M185 75 C185 75 200 65 215 75" stroke="#60A5FA" stroke-width="2" fill="none" opacity="0.4"/>
+  <path d="M178 68 C178 68 200 55 222 68" stroke="#60A5FA" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M172 61 C172 61 200 45 228 61" stroke="#60A5FA" stroke-width="2" fill="none" opacity="0.2"/>
+</svg>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { PARTNER_BRANDS } from "@/lib/constants";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 
@@ -38,12 +39,16 @@ export function BrandCarousel() {
         >
           {brands.map((brand, index) => (
             <div
-              key={`${brand}-${index}`}
-              className="flex-shrink-0 w-40 h-20 rounded-xl bg-white shadow-sm border border-border/50 flex items-center justify-center hover:shadow-md transition-shadow group"
+              key={`${brand.name}-${index}`}
+              className="flex-shrink-0 w-40 h-20 rounded-xl bg-white shadow-sm border border-border/50 flex items-center justify-center hover:shadow-md transition-shadow group p-3"
             >
-              <span className="text-lg font-bold text-primary/60 group-hover:text-primary transition-colors">
-                {brand}
-              </span>
+              <Image
+                src={brand.logo}
+                alt={brand.name}
+                width={140}
+                height={60}
+                className="object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+              />
             </div>
           ))}
         </motion.div>
