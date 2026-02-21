@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { sendNotificationEmail, buildNewsletterEmail } from "@/lib/email";
 
 export async function POST(request: NextRequest) {
   try {
@@ -55,6 +56,10 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Send email notification to sales@nisuae.com
+    const emailData = buildNewsletterEmail(email);
+    sendNotificationEmail(emailData).catch(console.error);
 
     return NextResponse.json(
       { success: true, message: "Successfully subscribed to newsletter." },
