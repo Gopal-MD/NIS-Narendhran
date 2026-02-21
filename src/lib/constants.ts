@@ -144,9 +144,9 @@ export const PARTNER_BRANDS = [
 ] as const;
 
 export const STATS = [
-  { value: 500, suffix: "+", label: "Clients Served" },
-  { value: 15, suffix: "+", label: "Years Experience" },
-  { value: 1000, suffix: "+", label: "Projects Completed" },
+  { value: 12, suffix: "+", label: "Brand Partners" },
+  { value: 6, suffix: "+", label: "Services Offered" },
+  { value: 7, suffix: "", label: "Emirates Covered" },
   { value: 24, suffix: "/7", label: "Support Available" },
 ] as const;
 

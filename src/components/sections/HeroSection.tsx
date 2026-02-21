@@ -65,7 +65,7 @@ export function HeroSection() {
           >
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-white/80 text-sm font-medium">
-              Trusted IT Partner in the UAE
+              Welcome to Your New IT Partner in the UAE
             </span>
           </motion.div>
 
@@ -87,9 +87,9 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.6 }}
             className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            From enterprise hardware procurement to managed IT services, we
-            empower businesses across the UAE with reliable, cost-effective
-            technology solutions.
+            Welcome to NIS — your dedicated IT partner in the UAE. From hardware
+            procurement to managed services, we&apos;re here to power your
+            business with reliable, cost-effective technology solutions.
           </motion.p>
 
           <motion.div
@@ -125,9 +125,9 @@ export function HeroSection() {
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10"
           >
             {[
-              { value: "500+", label: "Clients" },
-              { value: "15+", label: "Years" },
-              { value: "1000+", label: "Projects" },
+              { value: "12+", label: "Brand Partners" },
+              { value: "6+", label: "Services" },
+              { value: "7", label: "Emirates" },
               { value: "24/7", label: "Support" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
