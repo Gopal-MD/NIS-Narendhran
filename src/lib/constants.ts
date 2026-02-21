@@ -4,8 +4,8 @@ export const COMPANY = {
   tagline: "Complete IT Sales and Service Solutions",
   website: "https://www.nisuae.com",
   email: "sales@nisuae.com",
-  phone: "+971-6-XXX-XXXX",
-  whatsapp: "+971XXXXXXXXX",
+  phone: "+971 50 322 3760",
+  whatsapp: "+971503223760",
   address: "26th Floor, Amber Gem Tower, Ajman, UAE",
   mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.854!2d55.4372!3d25.4052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAmber+Gem+Tower+Ajman!5e0!3m2!1sen!2sae!4v1700000000000",
