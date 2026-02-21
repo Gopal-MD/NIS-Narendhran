@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { COMPANY } from "@/lib/constants";
 
@@ -57,8 +56,7 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,7 +96,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link href="/services">
               <Button
@@ -113,7 +111,7 @@ export function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 font-semibold px-8 backdrop-blur-sm"
+                className="bg-white text-primary hover:bg-white/90 font-semibold px-8 shadow-xl hover:shadow-2xl transition-all"
               >
                 Request a Quote
               </Button>
@@ -139,24 +137,6 @@ export function HeroSection() {
                 <div className="text-white/60 text-sm mt-1">{stat.label}</div>
               </div>
             ))}
-          </motion.div>
-          </div>
-
-          {/* Hero Illustration */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="hidden lg:flex items-center justify-center"
-          >
-            <Image
-              src="/images/hero-illustration.svg"
-              alt="IT Solutions"
-              width={500}
-              height={400}
-              className="w-full max-w-lg drop-shadow-2xl"
-              priority
-            />
           </motion.div>
         </div>
       </div>
