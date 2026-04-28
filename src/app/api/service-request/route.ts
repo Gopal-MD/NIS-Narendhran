@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
-import { sendNotificationEmail, buildServiceRequestEmail } from "@/lib/email";
 
 export async function POST(request: NextRequest) {
   try {
@@ -48,10 +47,6 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
-
-    // Send email notification to sales@nisuae.com
-    const emailData = buildServiceRequestEmail({ name, email, phone, service, message });
-    sendNotificationEmail(emailData).catch(console.error);
 
     return NextResponse.json(
       { success: true, message: "Service request submitted successfully." },

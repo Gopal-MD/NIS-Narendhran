@@ -34,10 +34,10 @@ export function ContactQuickForm() {
                   <div>
                     <p className="text-sm text-muted-foreground">Email Us</p>
                     <a
-                      href={`mailto:${COMPANY.email}`}
+                      href={`mailto:${COMPANY.emails.join(",")}`}
                       className="font-semibold text-primary hover:text-secondary transition-colors"
                     >
-                      {COMPANY.email}
+                      {COMPANY.emails.join(" / ")}
                     </a>
                   </div>
                 </div>
@@ -73,7 +73,7 @@ export function ContactQuickForm() {
           <AnimatedSection direction="right">
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h3 className="text-xl font-bold text-primary mb-6">
-                Quick Inquiry
+                Quick Quote Request
               </h3>
               <ContactForm variant="compact" />
             </div>

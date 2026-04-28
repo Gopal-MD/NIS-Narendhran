@@ -65,7 +65,7 @@ export function ContactPage() {
                   </div>
 
                   <a
-                    href={`mailto:${COMPANY.email}`}
+                    href={`mailto:${COMPANY.emails.join(",")}`}
                     className="flex items-start gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
                   >
                     <div className="w-11 h-11 rounded-lg gradient-primary flex items-center justify-center shrink-0">
@@ -73,10 +73,10 @@ export function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-primary text-sm">
-                        Email
+                        Emails
                       </p>
                       <p className="text-muted-foreground text-sm">
-                        {COMPANY.email}
+                        {COMPANY.emails.join(" / ")}
                       </p>
                     </div>
                   </a>
@@ -142,11 +142,11 @@ export function ContactPage() {
               <AnimatedSection direction="right">
                 <div className="bg-white rounded-2xl shadow-lg border p-8 md:p-10">
                   <h2 className="text-2xl font-bold text-primary mb-2">
-                    Send Us a Message
+                    Request a Quote
                   </h2>
                   <p className="text-muted-foreground text-sm mb-8">
-                    Fill out the form below and our team will get back to you
-                    within 24 hours.
+                    Fill out the form below to open your email app with a quote
+                    request addressed to our sales team.
                   </p>
                   <ContactForm variant="full" />
                 </div>

@@ -4,6 +4,7 @@ export const COMPANY = {
   tagline: "Complete IT Sales and Service Solutions",
   website: "https://www.nisuae.com",
   email: "sales@nisuae.com",
+  emails: ["sales@nisuae.com", "info@nisuae.com"],
   phone: "+971 50 322 3760",
   whatsapp: "+971503223760",
   address: "26th Floor, Amber Gem Tower, Ajman, UAE",

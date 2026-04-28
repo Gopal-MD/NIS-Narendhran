@@ -103,11 +103,11 @@ export function Footer() {
                 <p className="text-white/70 text-sm">{COMPANY.address}</p>
               </div>
               <a
-                href={`mailto:${COMPANY.email}`}
+                href={`mailto:${COMPANY.emails.join(",")}`}
                 className="flex items-center gap-3 text-white/70 hover:text-white text-sm transition-colors"
               >
                 <Mail className="h-5 w-5 text-secondary shrink-0" />
-                {COMPANY.email}
+                {COMPANY.emails.join(" / ")}
               </a>
               <a
                 href={`tel:${COMPANY.phone}`}
