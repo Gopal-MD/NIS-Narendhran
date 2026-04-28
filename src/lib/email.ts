@@ -20,7 +20,10 @@ export async function sendNotificationEmail({
   replyTo,
 }: SendEmailOptions) {
   if (!resend) {
-    throw new Error("Resend is not configured. Missing RESEND_API_KEY.");
+    console.warn(
+      "Resend is not configured. Missing RESEND_API_KEY. Email notification skipped."
+    );
+    return { id: "local-only" };
   }
 
   const { data, error } = await resend.emails.send({
@@ -32,7 +35,9 @@ export async function sendNotificationEmail({
   });
 
   if (error) {
-    throw new Error(error.message || "Resend send failed.");
+    console.error("Resend send error:", error.message);
+    // Log but don't throw — allow form submission to succeed
+    return { id: "error-logged" };
   }
 
   return data;
