@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { sendNotificationEmail, buildServiceRequestEmail } from "@/lib/email";
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,39 +15,46 @@ export async function POST(request: NextRequest) {
     }
 
     if (!supabase) {
-      console.warn("Supabase not configured. Service request:", { name, email, phone, service, message });
-      return NextResponse.json(
-        { success: true, message: "Request received (database pending setup)." },
-        { status: 200 }
-      );
-    }
-
-    const { error } = await supabase.from("service_requests").insert([
-      {
+      console.warn("Supabase not configured. Service request:", {
         name,
         email,
-        phone: phone || null,
+        phone,
         service,
-        message: message || null,
-      },
-    ]);
+        message,
+      });
+    } else {
+      const { error } = await supabase.from("service_requests").insert([
+        {
+          name,
+          email,
+          phone: phone || null,
+          service,
+          message: message || null,
+        },
+      ]);
 
-    if (error) {
-      console.error("Supabase error:", error);
-      if (error.message?.includes("relation") || error.code === "42P01") {
-        return NextResponse.json(
-          {
-            success: true,
-            message: "Request received (database pending setup).",
-          },
-          { status: 200 }
-        );
+      if (error) {
+        console.error("Supabase error:", error);
+        if (!(error.message?.includes("relation") || error.code === "42P01")) {
+          return NextResponse.json(
+            { error: "Failed to submit request." },
+            { status: 500 }
+          );
+        }
       }
-      return NextResponse.json(
-        { error: "Failed to submit request." },
-        { status: 500 }
-      );
     }
+
+    const emailData = buildServiceRequestEmail({
+      name,
+      email,
+      phone,
+      service,
+      message,
+    });
+    await sendNotificationEmail({
+      ...emailData,
+      replyTo: email,
+    });
 
     return NextResponse.json(
       { success: true, message: "Service request submitted successfully." },

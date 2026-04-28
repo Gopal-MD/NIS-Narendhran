@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { sendNotificationEmail, buildNewsletterEmail } from "@/lib/email";
 
 export async function POST(request: NextRequest) {
   try {
@@ -23,38 +24,28 @@ export async function POST(request: NextRequest) {
 
     if (!supabase) {
       console.warn("Supabase not configured. Newsletter sub:", email);
-      return NextResponse.json(
-        { success: true, message: "Subscription received (database pending setup)." },
-        { status: 200 }
-      );
+    } else {
+      const { error } = await supabase.from("newsletter_subscribers").insert([{ email }]);
+
+      if (error) {
+        if (error.code === "23505") {
+          return NextResponse.json(
+            { success: true, message: "You are already subscribed." },
+            { status: 200 }
+          );
+        }
+        console.error("Supabase error:", error);
+        if (!(error.message?.includes("relation") || error.code === "42P01")) {
+          return NextResponse.json(
+            { error: "Failed to subscribe." },
+            { status: 500 }
+          );
+        }
+      }
     }
 
-    const { error } = await supabase
-      .from("newsletter_subscribers")
-      .insert([{ email }]);
-
-    if (error) {
-      if (error.code === "23505") {
-        return NextResponse.json(
-          { success: true, message: "You are already subscribed." },
-          { status: 200 }
-        );
-      }
-      console.error("Supabase error:", error);
-      if (error.message?.includes("relation") || error.code === "42P01") {
-        return NextResponse.json(
-          {
-            success: true,
-            message: "Subscription received (database pending setup).",
-          },
-          { status: 200 }
-        );
-      }
-      return NextResponse.json(
-        { error: "Failed to subscribe." },
-        { status: 500 }
-      );
-    }
+    const emailData = buildNewsletterEmail(email);
+    await sendNotificationEmail(emailData);
 
     return NextResponse.json(
       { success: true, message: "Successfully subscribed to newsletter." },

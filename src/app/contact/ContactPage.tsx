@@ -145,8 +145,8 @@ export function ContactPage() {
                     Request a Quote
                   </h2>
                   <p className="text-muted-foreground text-sm mb-8">
-                    Fill out the form below to open your email app with a quote
-                    request addressed to our sales team.
+                    Fill out the form below and our team will receive your quote
+                    request by email.
                   </p>
                   <ContactForm variant="full" />
                 </div>
