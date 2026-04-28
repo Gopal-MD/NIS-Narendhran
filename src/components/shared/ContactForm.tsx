@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { COMPANY } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,35 +22,26 @@ export function ContactForm({ variant = "compact" }: ContactFormProps) {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
-  const quoteRecipients = COMPANY.emails.join(",");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
 
     try {
-      const subject = encodeURIComponent(
-        `Quote Request from ${formData.name || "Website Visitor"}`
-      );
-      const body = encodeURIComponent(
-        [
-          "Hello NIS team,",
-          "",
-          "I would like to request a quote.",
-          "",
-          `Name: ${formData.name}`,
-          `Email: ${formData.email}`,
-          `Phone: ${formData.phone || "Not provided"}`,
-          "",
-          "Requirement details:",
-          formData.message,
-        ].join("\n")
-      );
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      window.location.href = `mailto:${quoteRecipients}?subject=${subject}&body=${body}`;
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      setStatus("success");
-      setTimeout(() => setStatus("idle"), 5000);
+      if (res.ok) {
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        setStatus("success");
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
     } catch {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 5000);
@@ -117,8 +107,8 @@ export function ContactForm({ variant = "compact" }: ContactFormProps) {
         <Alert className="bg-green-50 border-green-200">
           <CheckCircle className="h-4 w-4 text-green-600" />
           <AlertDescription className="text-green-700">
-            Your email app has been opened with a quote request addressed to{" "}
-            {COMPANY.emails.join(" / ")}.
+            Thank you! Your quote request has been submitted. We&apos;ll get back
+            to you shortly.
           </AlertDescription>
         </Alert>
       )}
@@ -126,8 +116,7 @@ export function ContactForm({ variant = "compact" }: ContactFormProps) {
       {status === "error" && (
         <Alert className="bg-red-50 border-red-200">
           <AlertDescription className="text-red-700">
-            Something went wrong. Please email us directly at sales@nisuae.com
-            or info@nisuae.com.
+            Something went wrong. Please try again.
           </AlertDescription>
         </Alert>
       )}
@@ -141,7 +130,7 @@ export function ContactForm({ variant = "compact" }: ContactFormProps) {
         {status === "loading" ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Preparing...
+            Sending...
           </>
         ) : (
           <>
