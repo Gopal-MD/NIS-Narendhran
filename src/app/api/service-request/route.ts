@@ -35,12 +35,7 @@ export async function POST(request: NextRequest) {
 
       if (error) {
         console.error("Supabase error:", error);
-        if (!(error.message?.includes("relation") || error.code === "42P01")) {
-          return NextResponse.json(
-            { error: "Failed to submit request." },
-            { status: 500 }
-          );
-        }
+        console.warn("Continuing without database write for service request.");
       }
     }
 

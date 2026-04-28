@@ -35,12 +35,7 @@ export async function POST(request: NextRequest) {
           );
         }
         console.error("Supabase error:", error);
-        if (!(error.message?.includes("relation") || error.code === "42P01")) {
-          return NextResponse.json(
-            { error: "Failed to subscribe." },
-            { status: 500 }
-          );
-        }
+        console.warn("Continuing without database write for newsletter.");
       }
     }
 
