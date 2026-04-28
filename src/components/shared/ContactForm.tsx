@@ -117,8 +117,8 @@ export function ContactForm({ variant = "compact" }: ContactFormProps) {
         <Alert className="bg-green-50 border-green-200">
           <CheckCircle className="h-4 w-4 text-green-600" />
           <AlertDescription className="text-green-700">
-            Your email app has been opened with a quote request addressed to
-            sales@nisuae.com and info@nisuae.com.
+            Your email app has been opened with a quote request addressed to{" "}
+            {COMPANY.emails.join(" / ")}.
           </AlertDescription>
         </Alert>
       )}
