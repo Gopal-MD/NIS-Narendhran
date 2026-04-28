@@ -39,17 +39,22 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const emailData = buildServiceRequestEmail({
-      name,
-      email,
-      phone,
-      service,
-      message,
-    });
-    await sendNotificationEmail({
-      ...emailData,
-      replyTo: email,
-    });
+    try {
+      const emailData = buildServiceRequestEmail({
+        name,
+        email,
+        phone,
+        service,
+        message,
+      });
+      await sendNotificationEmail({
+        ...emailData,
+        replyTo: email,
+      });
+    } catch (emailError) {
+      console.warn("Email send failed:", emailError);
+      // Don't fail the request — service request is logged, email is optional
+    }
 
     return NextResponse.json(
       { success: true, message: "Service request submitted successfully." },

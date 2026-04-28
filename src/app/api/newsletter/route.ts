@@ -39,8 +39,13 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const emailData = buildNewsletterEmail(email);
-    await sendNotificationEmail(emailData);
+    try {
+      const emailData = buildNewsletterEmail(email);
+      await sendNotificationEmail(emailData);
+    } catch (emailError) {
+      console.warn("Email send failed:", emailError);
+      // Don't fail the request — subscription is logged, email is optional
+    }
 
     return NextResponse.json(
       { success: true, message: "Successfully subscribed to newsletter." },

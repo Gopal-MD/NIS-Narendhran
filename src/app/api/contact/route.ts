@@ -47,11 +47,16 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const emailData = buildInquiryEmail({ name, email, phone, message });
-    await sendNotificationEmail({
-      ...emailData,
-      replyTo: email,
-    });
+    try {
+      const emailData = buildInquiryEmail({ name, email, phone, message });
+      await sendNotificationEmail({
+        ...emailData,
+        replyTo: email,
+      });
+    } catch (emailError) {
+      console.warn("Email send failed:", emailError);
+      // Don't fail the request — inquiry is logged, email is optional
+    }
 
     return NextResponse.json(
       { success: true, message: "Request submitted successfully." },
