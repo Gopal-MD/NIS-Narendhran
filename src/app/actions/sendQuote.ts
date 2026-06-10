@@ -1,6 +1,6 @@
 "use server";
 
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 interface SendQuoteData {
   name: string;
@@ -14,10 +14,12 @@ interface SendQuoteResponse {
   message: string;
 }
 
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 /**
- * Server Action: Send quote request email via Nodemailer
+ * Server Action: Send quote request email via Resend
  * Sends to both sales@nisuae.com and info@nisuae.com
- * Uses GoDaddy SMTP or custom SMTP config via environment variables
+ * Uses Resend transactional email API
  */
 export async function sendQuote(
   data: SendQuoteData
@@ -40,19 +42,14 @@ export async function sendQuote(
   }
 
   try {
-    // Configure SMTP transport
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "smtpout.secureserver.net",
-      port: parseInt(process.env.SMTP_PORT || "465"),
-      secure: process.env.SMTP_SECURE === "true" || true, // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    // Verify connection configuration
-    await transporter.verify();
+    // Ensure RESEND_API_KEY is configured
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured");
+      return {
+        success: false,
+        message: "Email service is not configured. Please try again later.",
+      };
+    }
 
     // Recipient emails
     const recipients = ["sales@nisuae.com", "info@nisuae.com"];
@@ -119,17 +116,17 @@ export async function sendQuote(
     `;
 
     // Send email to both recipients
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER,
-      to: recipients.join(", "),
+    await resend.emails.send({
+      from: "NIS Website <onboarding@resend.dev>",
+      to: recipients,
       subject: `New Quote Request from ${escapeHtml(data.name)}`,
       html: htmlContent,
       replyTo: data.email,
     });
 
-    // Also send a confirmation email to the user
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER,
+    // Send confirmation email to user
+    await resend.emails.send({
+      from: "NIS Website <onboarding@resend.dev>",
       to: data.email,
       subject: "Quote Request Received - NIS",
       html: `
